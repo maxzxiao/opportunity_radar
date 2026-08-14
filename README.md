@@ -1,7 +1,7 @@
 # Opportunity Radar
 
 A daily 8am ET email digest of VC fellowships, accelerators, grants, and VC job
-openings — delivered to xiaomax0730@gmail.com.
+openings — delivered to maxxiao@umich.edu.
 
 ## How it runs
 
@@ -95,6 +95,24 @@ deliberately not written to disk here.
 Cron is fixed UTC and does **not** follow US daylight saving. `0 12 * * *` is
 8:00am ET from March to November, but 7:00am ET once the US falls back in
 November. To hold 8am ET through the winter, change it to `0 13 * * *` then.
+
+## Why the recipient is the umich address
+
+Resend's free tier will only deliver mail sent from `onboarding@resend.dev` to the
+**Resend account's own email address** — here, `maxxiao@umich.edu`. Sending to any
+other address, including a personal Gmail, returns:
+
+```
+403 validation_error
+You can only send testing emails to your own email address (maxxiao@umich.edu).
+```
+
+This is a hard restriction, not a payload problem — no retry or `from` tweak gets
+around it. The first test run failed exactly this way and sent nothing.
+
+**Known limitation:** this address dies whenever Michigan deprovisions the account,
+and the digest will silently stop. To outlive that, verify a domain at
+resend.com/domains and change `from` to an address on it — then any recipient works.
 
 ## When the email doesn't arrive
 
