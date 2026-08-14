@@ -64,8 +64,9 @@ sessions can only push to their current working branch, and only to `claude/*`
 names. Do not switch branches, and do not try to push to `main` — it will be
 rejected.
 
-If any git command fails, **keep going and still send the email.** Memory is a
-nice-to-have; the digest is the product. Note the failure at the bottom of the email.
+If any git command fails, or if no repository is attached to this session at all,
+**keep going and still send the email.** Memory is a nice-to-have; the digest is the
+product. Note the failure in one line at the bottom of the email.
 
 ## Step 1 — Establish today's date
 
@@ -78,8 +79,19 @@ Check each program's official URL and determine current status. Use WebFetch on 
 canonical URL first; only web-search if the page is uninformative. Flag anything due
 within 30 days as urgent.
 
-**If you're running short on time, cover groups A and B first** — those are the
-time-sensitive ones. Groups C-E can degrade to "unconfirmed" without much loss.
+**Verification cadence.** The roster is too big to re-fetch every page every morning,
+and most of it doesn't change day to day. Follow this:
+
+- **Groups A and B — every run.** These have hard annual deadlines that genuinely move.
+- **Groups C and D — Mondays and Thursdays only.** On other days, carry forward what
+  the roster says and mark them `UNCONFIRMED` rather than pretending you checked.
+- **Group E (jobs) — every run.** Postings go stale in days.
+- **Any day, regardless of group:** re-check anything you have positive reason to
+  think is changing — a cycle note says it opens this month, or a previous status
+  was `OPENS SOON`.
+
+Spending your time on A, B and E daily is the right trade. Do not burn the budget
+re-confirming that a rolling program is still rolling.
 
 ### A. Fellowships
 
@@ -124,6 +136,17 @@ time-sensitive ones. Groups C-E can degrade to "unconfirmed" without much loss.
 | On Deck | https://www.beondeck.com/ | **VERIFY** — has restructured repeatedly. Confirm which tracks actually run. |
 | Greylock Edge / X | https://greylock.com/ | **VERIFY NAME AND URL.** Drop if no live program page. |
 | Bessemer Fellows | https://www.bvp.com/ | **VERIFY THIS EXISTS** as a current program. Drop if no official page. |
+| HF0 Residency | https://www.hf0.com/ | Cohort-based (~Spring/Fall). 12wk SF residency, housing + meals, up to $1M uncapped SAFE for 5%. Repeat/technical founders. **The apply page is a lead form — the deadline is not published there.** |
+| Afore Founders in Residence | https://www.afore.vc/residence | 2-3 cohorts/yr, 5-8 teams. Few-hundred-k checks, 2 months in Afore's SF office. See also Afore Alpha. |
+| Antler | https://www.antler.co/ | Rolling, cohorts year-round across many cities. **Requires 100% time commitment and a valid visa for the chosen city — always flag both.** |
+| Harlem Capital | https://harlem.capital/ | 10-week program, 3 cohorts/yr (winter/summer/fall). 6 interns + 1-2 fellows. **Explicitly open to people with no prior VC experience or connections.** |
+| BLCK VC Scout Network | https://www.blckvc.com/ | Twice yearly, ~20 scouts per 6-month cohort. Founding partners Lightspeed and Sequoia. A rare scout program with a real open application. |
+
+**Invite-only — never present these as things to apply to.** Sequoia Scouts,
+Lightspeed Scouts, Accel Scouts and GV Scouts are sourced by referral from existing
+scouts and portfolio founders. There is no open application. Mention them as context
+if relevant, never as an action item. Sending Max at a door that doesn't open wastes
+his morning.
 
 ### D. Accelerators & grants
 
@@ -136,6 +159,11 @@ time-sensitive ones. Groups C-E can degrade to "unconfirmed" without much loss.
 | South Park Commons | https://www.southparkcommons.com/ | Rolling cohorts. Pre-idea stage. |
 | Entrepreneur First | https://www.joinef.com/ | Rolling intake, multiple cities. Pre-team/pre-idea. |
 | AI Grant | https://aigrant.com/ | **VERIFY STILL ACTIVE** before including. |
+| Techstars | https://www.techstars.com/accelerators | 40+ vertical accelerators worldwide, **each with its own deadline**. Deadlines live on individual program pages and apply.techstars.com, not the main page. Never quote one global Techstars deadline. |
+| 500 Global | https://500.co/ | Multiple tracks and geographies. Check which specific track is open — stage and terms differ a lot. |
+| Alchemist Accelerator | https://www.alchemistaccelerator.com/ | Enterprise/B2B. City programs (e.g. Chicago) run separate cycles from the main batch. |
+| Forum Ventures | https://www.forumvc.com/ | B2B SaaS pre-seed studio and accelerator. Batch-based. |
+| Founders Inc | https://www.f.inc/ | Rolling. SF campus + fund for technical founders. |
 
 ### E. VC roles
 
@@ -165,9 +193,22 @@ of queries every morning.
 | Saturday | Regional and international programs — Europe, India, LatAm, Africa, SEA. |
 | Sunday | "Just announced" sweep — what did funds and foundations announce in the past week aimed at students, early-career people, or first-time founders? |
 
+**Directories worth mining for candidates** — use these to find *names*, then verify
+every one on its official site. They are discovery aids only and must never be the
+source of a date or a status:
+
+- https://www.vcsheet.com/sheet/funds-with-scout-programs — curated list of funds
+  running scout programs
+- https://foundercal.org/ — accelerator deadline calendar
+- https://superscout.co/scout-programs — broad scout program list (blocklisted for
+  dates, fine for names)
+
 Rules for this step:
 - Cross-check every candidate against `memory/discovered.md`. **If it's already
   there and its status hasn't changed, do not put it in the email again.**
+- **Check whether a program actually has an open application before including it.**
+  Many fund scout programs are referral-only. An invite-only program is not an
+  opportunity, it's noise — say so once and drop it.
 - Verify each keeper on its official site before including it.
 - Include at most 5 genuinely new items.
 - If you find nothing new, say "nothing new today" — **do not pad this section.**
@@ -253,8 +294,10 @@ success you didn't observe — Max reads the run log when the email doesn't arri
 
 ## Step 7 — Save memory
 
-**Only after the email is sent.** Update `memory/discovered.md` — create it with this
-header if it doesn't exist:
+**Only after the email is sent.** Skip this entire step if no repository is attached
+to the session.
+
+Update `memory/discovered.md` — create it with this header if it doesn't exist:
 
 ```markdown
 # Discovered programs

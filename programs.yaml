@@ -152,6 +152,62 @@ fund_run_programs:
     cycle: VERIFY — periodic
     note: VERIFY THIS EXISTS as a current program before including. If no official page, drop it.
 
+  - name: HF0 Residency
+    url: https://www.hf0.com/
+    cycle: Cohort-based (roughly Spring / Fall)
+    note: 12-week SF residency for repeat and technical founders. Housing + daily meals. Up to $1M uncapped SAFE for 5%. NOTE the apply page is just a lead-capture form — the deadline is NOT published there, so check announcements/social instead of assuming.
+
+  - name: Afore Capital — Founders in Residence
+    url: https://www.afore.vc/residence
+    cycle: 2-3 cohorts/year, 5-8 teams each
+    note: Pre-seed. Checks of a few hundred thousand into people just starting out, two months working from Afore's SF office. See also Afore Alpha at https://www.afore.vc/afore-alpha.
+
+  - name: Antler
+    url: https://www.antler.co/
+    cycle: Rolling; cohorts start throughout the year across many cities
+    note: Pre-team/pre-idea, co-founder matching. Requires 100% time commitment and valid visa documentation for the chosen city — flag both, they disqualify a lot of applicants.
+
+  - name: Harlem Capital
+    url: https://harlem.capital/
+    cycle: 10-week program, 3 cohorts/year (winter, summer, fall)
+    note: 6 interns + 1-2 fellows per cohort. Explicitly open to people with NO prior VC experience or connections — one of the largest funnels into VC (18,800+ applications, 128 interns over 8 years).
+
+  - name: BLCK VC Scout Network
+    url: https://www.blckvc.com/
+    cycle: Twice a year, ~20 scouts per 6-month cohort
+    note: Run with Lightspeed and Sequoia as founding partners. A rare scout program with an actual open application.
+
+  # INVITE-ONLY — do not present these as things to apply to.
+  # Sequoia Scouts, Lightspeed Scouts, Accel Scouts and GV Scouts are sourced by
+  # referral from existing scouts and portfolio founders. There is no open
+  # application. Mention them only as context, never as an action item.
+
+accelerators_and_grants_extra:
+  - name: Techstars
+    url: https://www.techstars.com/accelerators
+    cycle: 40+ vertical accelerators worldwide, each with its own deadline
+    note: Deadlines are NOT listed on the main accelerators page — they live on individual program pages and at apply.techstars.com. Never quote a single global Techstars deadline.
+
+  - name: 500 Global
+    url: https://500.co/
+    cycle: Multiple tracks and geographies, rolling and batch
+    note: Check which specific track is open — they differ substantially in stage and terms.
+
+  - name: Alchemist Accelerator
+    url: https://www.alchemistaccelerator.com/
+    cycle: Batch-based, plus city-specific programs
+    note: Enterprise/B2B focused. City programs (e.g. Chicago) run separate cycles from the main batch.
+
+  - name: Forum Ventures
+    url: https://www.forumvc.com/
+    cycle: Batch-based
+    note: B2B SaaS pre-seed studio and accelerator.
+
+  - name: Founders Inc
+    url: https://www.f.inc/
+    cycle: Rolling
+    note: SF campus + fund for technical founders.
+
 deep_tech_science_ai:
   # Non-dilutive, research-flavored funding. Longer horizons, bigger checks.
   - name: Hertz Fellowship
