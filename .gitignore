@@ -1,0 +1,11 @@
+# Run artifacts the routine generates in its cloud session.
+# send.py in particular is generated WITH the real Resend key substituted in —
+# it must never be committed.
+send.py
+digest.html
+__pycache__/
+*.pyc
+.DS_Store
+
+# Local Claude Code settings
+.claude/settings.local.json

@@ -1,0 +1,230 @@
+# Opportunity Radar — tracked roster
+#
+# This is the SOURCE OF TRUTH for what the daily digest watches.
+# Edit here, then run `python3 build_prompt.py` to regenerate routine_prompt.md,
+# then push the new prompt to the routine (see README.md).
+#
+# DELIBERATE DESIGN NOTE: no hardcoded deadline dates.
+# Aggregator sites publish contradictory and often fabricated deadlines
+# (observed: one listed the Thiel Fellowship as "Dec 31, 2026" when Thiel is rolling).
+# Baked-in dates go stale silently and produce a confidently-wrong email.
+# Instead we store the canonical URL + the typical cycle, and the agent
+# re-verifies live status against the official source every morning.
+#
+# Fields:
+#   name    — display name
+#   url     — CANONICAL official page. Never an aggregator.
+#   cycle   — typical timing, for sanity-checking what the agent finds
+#   note    — what it is / who it's for / why it's on the list
+
+fellowships:
+  - name: Neo Scholars
+    url: https://neo.com/scholars
+    cycle: Annual; applications historically open late winter, deadline early-to-mid June
+    note: CS undergrads. $40k equity-free grant, 3-month SF summer residency, founder mentorship.
+
+  - name: Neo Accelerator
+    url: https://neo.com/accelerator-apply
+    cycle: Cohort-based with rolling intake between cohorts
+    note: Early-stage startups. ~$600k. Separate from Neo Scholars — different application.
+
+  - name: KP Fellows (Kleiner Perkins)
+    url: https://fellows.kleinerperkins.com/
+    cycle: Opens ~September, deadline ~January 31 for the following summer
+    note: Engineering / Product / Design tracks. Placed into KP portfolio companies.
+
+  - name: 8VC Fellowship
+    url: https://8vc.com/fellowships
+    cycle: Annual, winter application for summer placement
+    note: Undergrads. Engineering and Design tracks. One app places you into a portfolio startup, paid + housing support.
+
+  - name: Collide Capital — Fellowship & Scouts
+    url: https://collidecap.com/students
+    cycle: Per-semester (Spring / Summer / Fall); offering varies each term
+    note: MBA fellowship (deal sourcing, diligence, investment meetings) plus a separate Scout program. recruiting@collidecap.com.
+
+  - name: Contrary
+    url: https://contrary.com/
+    cycle: Rolling
+    note: Venture Partner program and Contrary Research analyst roles. Student/early-career route into VC.
+
+  - name: Z Fellows
+    url: https://www.zfellows.com/
+    cycle: Rolling, no deadline; multiple cohorts per year
+    note: One-week intensive, $10k stipend, optional $10k investment at $1B cap. Solo founders welcome, no incorporation needed.
+
+  - name: Thiel Fellowship
+    url: https://thielfellowship.org/
+    cycle: Rolling review, annual cohort
+    note: Under 23. Two years, $200k+, to skip or leave school. IGNORE third-party sites claiming a fixed deadline.
+
+  - name: Interact Fellowship
+    url: https://interactfellowship.org/
+    cycle: Annual, typically a spring deadline
+    note: Young technologists working at the intersection of tech and humanism.
+
+  - name: Dorm Room Fund
+    url: https://www.dormroomfund.com/
+    cycle: Recruits student investors on a periodic cycle
+    note: Student-run VC. Investment partner applications open periodically by region.
+
+  - name: Rough Draft Ventures
+    url: https://www.roughdraft.vc/
+    cycle: Periodic partner recruiting
+    note: General Catalyst's student investor program.
+
+accelerators_and_grants:
+  - name: Y Combinator
+    url: https://www.ycombinator.com/apply
+    cycle: Two batches per year; late applications accepted and reviewed
+    note: Deadlines cluster around spring and fall. Late apps are genuinely considered.
+
+  - name: a16z SPEEDRUN
+    url: https://speedrun.a16z.com/
+    cycle: Two cohorts/year; applications open ~April; off-season apps reviewed year-round
+    note: ~12 weeks in SF. Up to $1M ($500k for 10% upfront + $500k follow-on). <1% acceptance.
+
+  - name: Sequoia Arc
+    url: https://www.sequoiacap.com/arc/
+    cycle: Bi-annual open application, plus a sourced/invite track
+    note: 7-week Company Building Immersion. Open application and invited founders converge on the same program.
+
+  - name: Emergent Ventures
+    url: https://www.mercatus.org/emergent-ventures
+    cycle: Rolling, no deadline
+    note: Tyler Cowen / Mercatus. $1k-$50k+ for "zero to one" ideas. Proposal under 1,500 words. Age 13+. Regional verticals exist (India, Africa & Caribbean, Ukraine).
+
+  - name: South Park Commons Founder Fellowship
+    url: https://www.southparkcommons.com/
+    cycle: Rolling cohorts
+    note: Pre-idea stage. For people leaving a job to figure out what to build.
+
+  - name: Entrepreneur First
+    url: https://www.joinef.com/
+    cycle: Cohorts across multiple cities, rolling intake
+    note: Talent-first — join pre-team, pre-idea, co-founder matching.
+
+  - name: AI Grant
+    url: https://aigrant.com/
+    cycle: Batch-based, historically irregular
+    note: VERIFY STILL ACTIVE — founders' situations changed; confirm the program is still running before surfacing it.
+
+fund_run_programs:
+  # The long tail of VC-run scout / fellow / community programs.
+  # These are the under-the-radar routes into venture.
+  - name: Soma Capital Fellows
+    url: https://programs.somacap.com/fellows
+    cycle: Rolling; 4-week sprint cohorts of ~10-15 fellows
+    note: Source companies + run diligence. Meets 2x/week virtually (Mon & Thu, 4-6pm PT). Leads to Soma internships and the wider Soma network.
+
+  - name: Pear VC Fellows (Garage / Dorm)
+    url: https://pear.vc/programs/dorm/fellows/
+    cycle: Cohort-based
+    note: Undergrad, MBA and PhD students. Immersive apprenticeship with the Pear team aimed at a VC or founder career.
+
+  - name: Accel Atoms
+    url: https://atoms.accel.com/apply
+    cycle: AI track open year-round; Atoms X track by cohort
+    note: Pre-seed program, up to $1M equity or convertible note. For Indian & Indian-origin founders building anywhere.
+
+  - name: Hustle Fund Angel Squad
+    url: https://www.hustlefund.vc/squad
+    cycle: Rolling membership
+    note: PAID membership, not a fellowship. Deal flow + co-invest alongside Hustle Fund from ~$1k checks. Free intro course exists. Flag the cost in the digest.
+
+  - name: Village Global Network Catalyst
+    url: https://www.villageglobal.vc/
+    cycle: Cohort-based, periodic deadlines
+    note: 90-day intensive for formation-stage founders. Activates the Village Global network.
+
+  - name: On Deck
+    url: https://www.beondeck.com/
+    cycle: Rolling cohorts
+    note: VERIFY current program lineup — On Deck has restructured its offerings repeatedly. Confirm which tracks are actually running.
+
+  - name: Greylock Edge / Greylock X
+    url: https://greylock.com/
+    cycle: VERIFY — periodic
+    note: VERIFY BOTH NAME AND URL. Greylock has run several early-stage and student programs under changing names. Drop from the digest if no live program page exists.
+
+  - name: Bessemer Fellows
+    url: https://www.bvp.com/
+    cycle: VERIFY — periodic
+    note: VERIFY THIS EXISTS as a current program before including. If no official page, drop it.
+
+deep_tech_science_ai:
+  # Non-dilutive, research-flavored funding. Longer horizons, bigger checks.
+  - name: Hertz Fellowship
+    url: https://www.hertzfoundation.org/hertz-fellowship/apply/
+    cycle: Application opens late August, closes late October, for the following year's cohort
+    note: PhD students in applied physical/biological sciences, math, engineering. One of the most generous and most competitive. TIME-SENSITIVE each fall.
+
+  - name: Activate Fellowship
+    url: https://www.activate.org/
+    cycle: Applications collected roughly September-October each year
+    note: Entrepreneurial scientists commercializing hard tech. Runs Cyclotron Road in partnership with Berkeley Lab.
+
+  - name: Cyclotron Road
+    url: https://cyclotronroad.lbl.gov/engage/how-to-apply/
+    cycle: Annual, September-October window
+    note: Berkeley Lab hard-tech fellowship, operated with Activate. Same cycle as Activate — check both.
+
+  - name: Astera Institute Residency
+    url: https://astera.org/
+    cycle: Cohort-based; Fall cohort application has historically closed mid-April
+    note: 12-18 months fully funded. $125k-$250k salary plus up to $1.5M for lab/compute/personnel. Focus on neuro, AI, life sciences, plus an open track.
+
+  - name: Schmidt Science Fellows
+    url: https://schmidtsciencefellows.org/selection/how-to-apply/
+    cycle: Annual, but gated by institutional nomination with earlier internal deadlines
+    note: IMPORTANT — you usually cannot apply directly. Your university nominates you, and its internal deadline lands months before the program's. Surface the nomination deadline, not just the program one.
+
+  - name: Anthropic Fellows
+    url: https://alignment.anthropic.com/
+    cycle: Cohort-based; check for the current open cohort
+    note: ~4 months of empirical AI safety research aimed at a public output. No PhD or prior ML publication required; strong quantitative background is.
+
+  - name: MATS (ML Alignment & Theory Scholars)
+    url: https://www.matsprogram.org/apply
+    cycle: Roughly two cohorts per year; individual mentor streams open on their own schedules
+    note: 10-week funded alignment/security/governance research with mentors from frontier labs. Stream-level deadlines differ from the main cohort deadline — check both.
+
+  - name: OpenAI Residency
+    url: https://openai.com/residency/
+    cycle: Annual
+    note: For researchers/engineers from adjacent fields — math, physics, neuroscience — moving into AI.
+
+  - name: Renaissance Philanthropy
+    url: https://www.renaissancephilanthropy.org/funds
+    cycle: Fund-by-fund, irregular
+    note: Time-bound philanthropic funds led by field experts. Check the Funds page for anything with an open call.
+
+  - name: Convergent Research (FROs)
+    url: https://www.convergentresearch.org/
+    cycle: Irregular
+    note: Focused Research Organizations — projects too big for a university, too unprofitable for VC. Rarely an open application, but watch for calls.
+
+  # DELIBERATELY EXCLUDED: Speculative Technologies.
+  # Funds exclusively by invitation and explicitly does not accept unsolicited
+  # proposals. Listing it would send Max at a door that does not open.
+
+vc_roles:
+  - name: John Gannon's VC Jobs Board
+    url: https://johngannonblog.com/category/vc-jobs/
+    cycle: Continuous
+    note: Long-running aggregator of analyst / associate / platform roles. The single highest-yield source for VC job postings.
+
+  - name: OpenVC Jobs
+    url: https://www.openvc.app/
+    cycle: Continuous
+    note: VC roles plus fund/program directory.
+
+  - name: Confluence.VC Jobs
+    url: https://www.confluence.vc/
+    cycle: Continuous
+    note: VC job board and breaking-into-VC resources.
+
+  - name: Included VC
+    url: https://www.includedvc.com/
+    cycle: Annual fellowship cohort
+    note: Fellowship for underrepresented aspiring investors. Global, remote.
