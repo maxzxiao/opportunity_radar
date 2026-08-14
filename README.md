@@ -36,13 +36,47 @@ morning. The prompt contains an explicit blocklist of aggregator domains that ma
 be used to *discover* a program but never to *source a date*, and requires every
 item to be marked `OPEN` / `CLOSED` / `OPENS SOON` / `UNCONFIRMED`.
 
+## How discovery works
+
+The roster is the reliable backbone, but it's fixed — the interesting programs are
+the ones nobody's roster has yet. Two mechanisms handle that.
+
+**Weekday rotation.** Each run is a fresh session with no recollection of yesterday,
+so an instruction like "vary your search angle" is worthless — the agent has nothing
+to vary against. Instead the discovery angle is keyed to the weekday: Monday hunts
+fund-run scout programs, Tuesday hard tech grants, Wednesday AI research residencies,
+Thursday newly-opened accelerator batches, Friday foundation open calls, Saturday
+international programs, Sunday a "just announced this week" sweep. Deterministic, and
+it produces real coverage variety instead of the illusion of it.
+
+**The memory branch.** Discoveries accumulate in `memory/discovered.md` on a
+long-lived `claude/discoveries` branch. Each run checks it out, reads what's already
+known, and skips anything unchanged — so the discovery section stays genuinely new
+rather than repeating itself into irrelevance.
+
+This branch is not an arbitrary choice. Anthropic-hosted cloud sessions can only push
+to their **current working branch**, and only to branches prefixed `claude/`. Pushing
+to `main` is rejected outright. Keeping memory on a single `claude/` branch that the
+agent checks out at the start means read and write both work with no merge step, no
+PR, and no auto-merge workflow.
+
 ## Files
 
 | File | Purpose |
 |---|---|
 | `programs.yaml` | The tracked roster. Edit this to add or drop a program. |
 | `routine_prompt.md` | The deployed prompt, with `__RESEND_API_KEY__` as a placeholder. |
+| `memory/discovered.md` | Accumulated discoveries. The routine only reads/writes the `claude/discoveries` copy. |
+| `.gitignore` | Excludes `send.py` — it's generated with the real key substituted in. |
 | `README.md` | This file. |
+
+## Promoting a discovery
+
+When something keeps appearing and looks like a keeper, the run log will say
+*"Suggest promoting X to the tracked roster."* Move it into `programs.yaml`, mirror it
+into the roster tables in `routine_prompt.md`, and ask Claude Code to push the updated
+prompt. Promotion is deliberately manual — it's the one point where a human decides
+what's worth watching every day.
 
 The real Resend key is **only** in the routine config on the Claude account — it is
 deliberately not written to disk here.
