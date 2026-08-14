@@ -10,6 +10,7 @@ cloud. It is not a local cron job and it does not touch this machine. Each morni
 it spins up a fresh session, researches, composes an HTML email, and sends it
 through the Resend API.
 
+- **Repo:** https://github.com/maxzxiao/opportunity_radar (`main` + `claude/discoveries`)
 - **Routine ID:** `trig_01Pj4QSjr4z76fT55NbEcjLM`
 - **Manage / read run logs:** https://claude.ai/code/routines/trig_01Pj4QSjr4z76fT55NbEcjLM
 - **Schedule:** `0 12 * * *` UTC = 8:00am ET (see DST caveat below)
